@@ -7,3 +7,16 @@ before_install:
 
 script:
     - docker run -e CI=true -p 80:4200 sdiwan101/docker-angular npm run lint
+
+deploy:
+    provider: elasticbeanstalk
+    region: "us-east-2"
+    app: "tinyurl"
+    env: "Tinyurl-env"
+    bucket_name: "elasticbeanstalk-us-east-2-144147109709"
+    bucket_path: "tinyurl"
+    edge: true
+    on:
+        branch: master
+    access_key_id: $AWS_ACCESS_KEY
+    secret_access_key: $AWS_SECRET_KEY
