@@ -13,17 +13,10 @@ export class LoginComponent implements OnInit {
 
   constructor( private formBuilder: FormBuilder, private router: Router) { }
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.loginForm = this.formBuilder.group({
       username: [''],
       password: ['']
     });
   }
-
-  get f() { return this.loginForm.controls; }
-
-  login() {
-    
-  }
-
 }
