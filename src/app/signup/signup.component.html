@@ -1,1 +1,17 @@
-<p>signup works!</p>
+<div class="justify-content-center"><h1>Sign Up</h1></div>
+
+<form [formGroup]="loginForm" (ngSubmit)="login()">
+
+  <mat-form-field>
+    <input matInput type="text" id="username" placeholder="Username" autocomplete="off" formControlName="username" required>
+  </mat-form-field>
+  <br/>
+  <mat-form-field>
+    <input matInput type="password" id="password" placeholder="Password" formControlName="password" required>
+  </mat-form-field>
+
+  <div class="actions">
+    <button mat-raised-button color="primary" type="submit" [disabled]="!loginForm.valid">LOG IN</button>
+  </div>
+
+</form>
