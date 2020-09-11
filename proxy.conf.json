@@ -1,0 +1,11 @@
+{
+	"/server": {
+		"target": "http://tinyurlserver-env.eba-nt8f26gy.us-east-2.elasticbeanstalk.com",
+		"secure": false,
+    "changeOrigin": true,
+    "logLevel": "debug",
+    "pathRewrite": {
+      "^/server" : ""
+    }
+	}
+}
