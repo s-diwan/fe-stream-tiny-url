@@ -6,7 +6,7 @@ before_install:
     - docker build -t sdiwan101/docker-angular -f Dockerfile.dev . 
 
 script:
-    - docker run -e CI=true -p 80:4200 sdiwan101/docker-angular
+    - docker run -e CI=true -p 80:4200 sdiwan101/docker-angular npm run lint
 
 deploy:
     provider: elasticbeanstalk

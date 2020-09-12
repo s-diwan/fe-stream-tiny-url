@@ -14,16 +14,16 @@ export class LoginComponent implements OnInit {
 
   constructor(private authService: AuthService, private formBuilder: FormBuilder, private router: Router) { }
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.loginForm = this.formBuilder.group({
       username: [''],
       password: ['']
     });
   }
 
-  get f() { return this.loginForm.controls; }
+  get f(): any { return this.loginForm.controls; }
 
-  login() {
+  login(): void {
     this.authService.login(
       {
         username: this.f.username.value,
