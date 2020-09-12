@@ -4,6 +4,7 @@ import { NgModule } from '@angular/core';
 import { HomeComponent } from './home/home.component';
 import { SignupComponent } from './signup/signup.component';
 import { LandingComponent } from './landing/landing.component';
+import { AuthGuard } from './services/auth-guard.service';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: '/home' },
@@ -21,7 +22,8 @@ const routes: Routes = [
   },
   {
     path: 'landing',
-    component: LandingComponent
+    component: LandingComponent,
+    canActivate: [AuthGuard]
   }
 ];
 
