@@ -17,6 +17,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthGuard } from './services/auth-guard.service';
 import { AuthService } from './services/auth.service';
 import { TokenInterceptor } from './services/token.interceptor';
+import { MatRadioModule } from '@angular/material/radio';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import { TokenInterceptor } from './services/token.interceptor';
     MatFormFieldModule,
     BrowserAnimationsModule,
     ReactiveFormsModule,
+    MatRadioModule,
     HttpClientModule
   ],
   providers: [AuthGuard,

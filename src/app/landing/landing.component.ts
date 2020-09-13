@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CardServiceService } from '../services/card-service.service';
 import { TestService } from '../services/test.service';
 
 @Component({
@@ -8,10 +9,12 @@ import { TestService } from '../services/test.service';
 })
 export class LandingComponent implements OnInit {
   public studentData: any;
-  constructor(private test: TestService) { }
+  public cardsData: any;
+  constructor(private cardService:CardServiceService,private test: TestService) { }
 
   ngOnInit(): void {
     this.getUser();
+    this.getAllCards();
   }
 
   getUser(): void {
@@ -20,6 +23,14 @@ export class LandingComponent implements OnInit {
       err => console.log(err),
       () => console.log('user data loaded')
     );
+  }
+
+  getAllCards(): void{
+    this.cardService.getAllCards().subscribe(
+      data => {this.cardsData = data; },
+      err => console.log(err),
+      () => console.log('cards data loaded')
+    )
   }
 
 }
