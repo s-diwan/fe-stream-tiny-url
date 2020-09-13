@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { CreateCardComponent } from '../create-card/create-card.component';
 import { CardServiceService } from '../services/card-service.service';
 import { TestService } from '../services/test.service';
 
@@ -10,7 +12,7 @@ import { TestService } from '../services/test.service';
 export class LandingComponent implements OnInit {
   public studentData: any;
   public cardsData: any;
-  constructor(private cardService: CardServiceService, private test: TestService) { }
+  constructor(public dialog: MatDialog, private cardService: CardServiceService, private test: TestService) { }
 
   ngOnInit(): void {
     this.getUser();
@@ -31,6 +33,17 @@ export class LandingComponent implements OnInit {
       err => console.log(err),
       () => console.log('cards data loaded')
     );
+  }
+
+  openDialog(): any {
+    const dialogRef = this.dialog.open(CreateCardComponent, {
+      height: '400px',
+      width: '400px',
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+    });
   }
 
 }

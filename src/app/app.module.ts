@@ -21,6 +21,8 @@ import { MatRadioModule } from '@angular/material/radio';
 import { GroupComponent } from './group/group.component';
 import { ProfileComponent } from './profile/profile.component';
 import { GroupDetailsComponent } from './group-details/group-details.component';
+import {MatDialogModule} from '@angular/material/dialog';
+import { CreateCardComponent } from './create-card/create-card.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +34,8 @@ import { GroupDetailsComponent } from './group-details/group-details.component';
     LandingComponent,
     GroupComponent,
     ProfileComponent,
-    GroupDetailsComponent
+    GroupDetailsComponent,
+    CreateCardComponent
   ],
   imports: [
     BrowserModule,
@@ -40,6 +43,7 @@ import { GroupDetailsComponent } from './group-details/group-details.component';
     MatInputModule,
     MatButtonModule,
     MatFormFieldModule,
+    MatDialogModule,
     BrowserAnimationsModule,
     ReactiveFormsModule,
     MatRadioModule,

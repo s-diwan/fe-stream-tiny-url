@@ -1,13 +1,19 @@
-<div class="cards">
-<div class="container">
-    <div class="card-deck">
-    <div class="card"  *ngFor="let card of cardsData">
-      <img class="card-img-top" src="https://i.picsum.photos/id/119/3264/2176.jpg?hmac=PYRYBOGQhlUm6wS94EkpN8dTIC7-2GniC3pqOt6CpNU" alt="Card image cap">
-      <div class="card-body">
-        <h3 class="card-title font-weight-bold">{{card.title}}</h3>
-        <h5 class="card-subtitle mb-2 font-weight-bold">{{card.description}}</h5>
-        <p class="card-text">{{card.url}}</p>
-      </div>
-      </div>
-  </div>
+<div class="container cardTitle">
+    <h1 class="header text-primary">Cards</h1>
+    <button type="button" class="btn btn-primary btn-md float-right cardButton" (click)="openDialog()">Create Card</button>
 </div>
+<div class="cards">
+  <div class="container">
+    <div class="card-deck">
+      <div class="card" *ngFor="let card of cardsData">
+        <img class="card-img-top"
+          src="https://i.picsum.photos/id/119/3264/2176.jpg?hmac=PYRYBOGQhlUm6wS94EkpN8dTIC7-2GniC3pqOt6CpNU"
+          alt="Card image cap">
+        <div class="card-body">
+          <h3 class="card-title font-weight-bold">{{card.title}}</h3>
+          <h5 class="card-subtitle mb-2 font-weight-bold">{{card.description}}</h5>
+          <p class="card-text">{{card.url}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
