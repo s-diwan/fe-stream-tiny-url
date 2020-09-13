@@ -12,7 +12,7 @@ import { SignUpService } from '../services/sign-up.service';
 export class SignupComponent implements OnInit {
   signUpForm: FormGroup;
 
-  constructor( private signUpService :SignUpService ,private formBuilder: FormBuilder, private router: Router) { }
+  constructor( private signUpService: SignUpService, private formBuilder: FormBuilder, private router: Router) { }
 
   ngOnInit(): void {
     this.signUpForm = this.formBuilder.group({

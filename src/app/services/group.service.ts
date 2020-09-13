@@ -4,11 +4,11 @@ import { Injectable } from '@angular/core';
 @Injectable({
   providedIn: 'root'
 })
-export class CardServiceService {
+export class GroupService {
 
   constructor(private http: HttpClient) { }
 
-  getAllCards(): any{
-    return this.http.get('/server/getAllCards');
+  getAllGroups(): any{
+    return this.http.get('/server/getAllGroups');
   }
 }

@@ -1,0 +1,23 @@
+
+<div class="group">
+    <h1 class="header text-primary">Groups</h1>
+    <button type="button" class="btn btn-primary btn-md float-right grpButton">Create Group</button>
+  <table class="table">
+    <thead class="thead-light">
+      <tr>
+        <th scope="col">Group Id</th>
+        <th scope="col">Group Name</th>
+        <th scope="col">Group Type</th>
+        <th scope="col">Group Creator</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let group of groupsData">
+        <th scope="row" class="font-weight-bold">{{group.id}}</th>
+        <td class="font-weight-bold">{{group.groupName}}</td>
+        <td class="font-weight-bold">{{group.groupType}}</td>
+        <td class="font-weight-bold">{{group.groupAdmin}}</td>
+      </tr>
+    </tbody>
+  </table>
+  </div>

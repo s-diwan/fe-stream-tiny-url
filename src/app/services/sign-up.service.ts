@@ -9,7 +9,7 @@ export class SignUpService {
 
   constructor(private http: HttpClient) { }
 
-  signup(user: { firstName: string, lastName: string, gender:string,email:string , password:string }): Observable<any> {
+  signup(user: { firstName: string, lastName: string, gender: string, email: string, password: string }): Observable<any> {
     return this.http.post<any>('server/signup', user);
   }
 }

@@ -10,7 +10,7 @@ import { TestService } from '../services/test.service';
 export class LandingComponent implements OnInit {
   public studentData: any;
   public cardsData: any;
-  constructor(private cardService:CardServiceService,private test: TestService) { }
+  constructor(private cardService: CardServiceService, private test: TestService) { }
 
   ngOnInit(): void {
     this.getUser();
@@ -30,7 +30,7 @@ export class LandingComponent implements OnInit {
       data => {this.cardsData = data; },
       err => console.log(err),
       () => console.log('cards data loaded')
-    )
+    );
   }
 
 }

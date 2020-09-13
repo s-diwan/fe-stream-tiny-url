@@ -18,6 +18,9 @@ import { AuthGuard } from './services/auth-guard.service';
 import { AuthService } from './services/auth.service';
 import { TokenInterceptor } from './services/token.interceptor';
 import { MatRadioModule } from '@angular/material/radio';
+import { GroupComponent } from './group/group.component';
+import { ProfileComponent } from './profile/profile.component';
+import { GroupDetailsComponent } from './group-details/group-details.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +29,10 @@ import { MatRadioModule } from '@angular/material/radio';
     HomeComponent,
     LoginComponent,
     SignupComponent,
-    LandingComponent
+    LandingComponent,
+    GroupComponent,
+    ProfileComponent,
+    GroupDetailsComponent
   ],
   imports: [
     BrowserModule,

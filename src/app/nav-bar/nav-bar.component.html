@@ -24,11 +24,11 @@
                     </li>
                     
                     <li *ngIf="flag" class="nav-item">
-                        <a class="nav-link text-white"  [routerLink]="['/landing']">Groups</a>
+                        <a class="nav-link text-white"  [routerLink]="['/group']">Groups</a>
                     </li>
                     
                     <li *ngIf="flag" class="nav-item">
-                        <a class="nav-link text-white"  [routerLink]="['/landing']">Profile</a>
+                        <a class="nav-link text-white"  [routerLink]="['/profile']">Profile</a>
                     </li>
                     <li *ngIf="flag" class="nav-item">
                         <a class="nav-link text-white" (click)="logOut()" [routerLink]="['/home']">Logout</a>

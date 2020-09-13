@@ -8,17 +8,17 @@ import { AuthService } from '../services/auth.service';
 })
 export class NavBarComponent implements OnInit {
   public token: any;
-  flag:boolean=false;
-  constructor(private authService:AuthService) { }
+  flag: any = false;
+  constructor(private authService: AuthService) { }
 
   ngOnInit(): void {
-    if(this.authService.getJwtToken()){
-      this.flag=true;
+    if (this.authService.getJwtToken()){
+      this.flag = true;
     }
   }
 
-  logOut() {
+  logOut(): void {
     this.authService.logout();
-    this.flag=false
+    this.flag = false;
   }
 }
