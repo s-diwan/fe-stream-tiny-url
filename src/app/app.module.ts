@@ -23,6 +23,9 @@ import { ProfileComponent } from './profile/profile.component';
 import { GroupDetailsComponent } from './group-details/group-details.component';
 import {MatDialogModule} from '@angular/material/dialog';
 import { CreateCardComponent } from './create-card/create-card.component';
+import { GroupsearchPipe } from './pipes/groupsearch.pipe';
+import { FormsModule } from '@angular/forms';
+import { CardsearchPipe } from './pipes/cardsearch.pipe';
 
 @NgModule({
   declarations: [
@@ -35,7 +38,9 @@ import { CreateCardComponent } from './create-card/create-card.component';
     GroupComponent,
     ProfileComponent,
     GroupDetailsComponent,
-    CreateCardComponent
+    CreateCardComponent,
+    GroupsearchPipe,
+    CardsearchPipe
   ],
   imports: [
     BrowserModule,
@@ -47,6 +52,7 @@ import { CreateCardComponent } from './create-card/create-card.component';
     BrowserAnimationsModule,
     ReactiveFormsModule,
     MatRadioModule,
+    FormsModule,
     HttpClientModule
   ],
   providers: [AuthGuard,

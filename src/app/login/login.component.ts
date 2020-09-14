@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
+import { DataSharedService } from '../services/data-shared.service';
 
 @Component({
   selector: 'app-login',
@@ -12,7 +13,8 @@ export class LoginComponent implements OnInit {
 
   loginForm: FormGroup;
 
-  constructor(private authService: AuthService, private formBuilder: FormBuilder, private router: Router) { }
+  constructor( private dataShare: DataSharedService,
+               private authService: AuthService, private formBuilder: FormBuilder, private router: Router) { }
 
   ngOnInit(): void {
     this.loginForm = this.formBuilder.group({
@@ -32,6 +34,8 @@ export class LoginComponent implements OnInit {
     )
     .subscribe(success => {
       if (success) {
+        console.log('Login Success');
+        this.dataShare.setLoginFlag(true);
         this.router.navigate(['/landing']);
       }
     });

@@ -1,6 +1,10 @@
 <div class="container">
 <div class="group">
     <h1 class="header text-primary">Groups</h1>
+    <div class="form-group has-search">
+      <span class="fa fa-search form-control-feedback"></span>
+      <input type="text" class="form-control" placeholder="Search" [(ngModel)]="grpSearch">
+    </div>
     <button type="button" class="btn btn-primary btn-md float-right grpButton" (click)="openDialog()">Create Group</button>
   <table class="table">
     <thead class="thead-light">
@@ -12,7 +16,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let group of groupsData">
+      <tr *ngFor="let group of groupsData | groupsearch:grpSearch">
         <th scope="row" class="font-weight-bold">{{group.id}}</th>
         <td class="font-weight-bold">{{group.groupName}}</td>
         <td class="font-weight-bold">{{group.groupType}}</td>
