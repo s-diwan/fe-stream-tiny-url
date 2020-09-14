@@ -7,6 +7,8 @@ import { LandingComponent } from './landing/landing.component';
 import { AuthGuard } from './services/auth-guard.service';
 import { GroupComponent } from './group/group.component';
 import { ProfileComponent } from './profile/profile.component';
+import { MyCardsComponent } from './my-cards/my-cards.component';
+import { GroupInfoComponent } from './group-info/group-info.component';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: '/home' },
@@ -36,8 +38,18 @@ const routes: Routes = [
     path: 'profile',
     component: ProfileComponent,
     canActivate: [AuthGuard]
+  },
+  {
+    path: 'mycards',
+    component: MyCardsComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'groupinfo/:id',
+    component: GroupInfoComponent,
+    canActivate: [AuthGuard]
   }
-];
+  ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

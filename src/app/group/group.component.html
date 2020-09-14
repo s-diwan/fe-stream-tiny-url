@@ -17,7 +17,7 @@
     </thead>
     <tbody>
       <tr *ngFor="let group of groupsData | groupsearch:grpSearch">
-        <th scope="row" class="font-weight-bold">{{group.id}}</th>
+        <th scope="row" class="font-weight-bold"><a [routerLink]="['/groupinfo',group.id]">{{group.id}}</a></th>
         <td class="font-weight-bold">{{group.groupName}}</td>
         <td class="font-weight-bold">{{group.groupType}}</td>
         <td class="font-weight-bold">{{group.groupAdmin}}</td>

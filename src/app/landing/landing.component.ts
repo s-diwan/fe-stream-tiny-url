@@ -12,7 +12,7 @@ import { TestService } from '../services/test.service';
 export class LandingComponent implements OnInit {
   public studentData: any;
   public cardsData: any;
-  public crdSearch: string;
+  public crdSearch = '';
   constructor(public dialog: MatDialog, private cardService: CardServiceService, private test: TestService) { }
 
   ngOnInit(): void {

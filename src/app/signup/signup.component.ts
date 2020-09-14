@@ -37,9 +37,7 @@ export class SignupComponent implements OnInit {
       }
     )
     .subscribe(success => {
-      if (success) {
         this.router.navigate(['/login']);
-      }
     });
   }
 }

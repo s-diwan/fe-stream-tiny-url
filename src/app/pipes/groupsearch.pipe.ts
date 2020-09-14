@@ -6,7 +6,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 export class GroupsearchPipe implements PipeTransform {
 
   transform(items: any, searchValue: any): any {
-    if (items === null || items === '' || searchValue === null || searchValue === ''){
+    if (items === null || items === '' || searchValue == null || searchValue === ''){
       return items;
     }
     else {

@@ -26,6 +26,8 @@ import { CreateCardComponent } from './create-card/create-card.component';
 import { GroupsearchPipe } from './pipes/groupsearch.pipe';
 import { FormsModule } from '@angular/forms';
 import { CardsearchPipe } from './pipes/cardsearch.pipe';
+import { MyCardsComponent } from './my-cards/my-cards.component';
+import { GroupInfoComponent } from './group-info/group-info.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +42,9 @@ import { CardsearchPipe } from './pipes/cardsearch.pipe';
     GroupDetailsComponent,
     CreateCardComponent,
     GroupsearchPipe,
-    CardsearchPipe
+    CardsearchPipe,
+    MyCardsComponent,
+    GroupInfoComponent
   ],
   imports: [
     BrowserModule,

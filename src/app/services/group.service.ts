@@ -13,6 +13,10 @@ export class GroupService {
     return this.http.get('/server/getAllGroups');
   }
 
+  getGroup(id: number): any{
+    return this.http.get('/server/groups/' + id);
+  }
+
   createGroup(group: { groupName: string, groupType: string }): Observable<any> {
     return this.http.post<any>('server/createGroup', group);
   }

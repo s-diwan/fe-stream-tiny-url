@@ -2,9 +2,6 @@
     <nav class="navbar navbar-expand-md bg-dark navbar-dark">
         <div class="container">
             <a href="" class="navbar-brand font-weight-bold mr-auto">TinyUrl</a>
-            <span class="navbar-text ml-2 mr-1 text-primary">
-                Make Your Url Shorter !!
-              </span>
              <button class="navbar-toggler" type="button"  data-toggle="collapse" data-target="#collapsenavbar">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -22,11 +19,16 @@
                     <li *ngIf="flag" class="nav-item">
                         <a class="nav-link text-white"  [routerLink]="['/landing']">Home</a>
                     </li>
-                    
                     <li *ngIf="flag" class="nav-item">
-                        <a class="nav-link text-white"  [routerLink]="['/group']">Groups</a>
+                        <a class="nav-link text-white"  [routerLink]="['/mycards']">My Cards</a>
                     </li>
-                    
+                    <li *ngIf="flag" class="nav-item">
+                        <a class="nav-link text-white"  [routerLink]="['/group']">My Groups</a>
+                    </li>
+                   
+                    <li *ngIf="flag" class="nav-item">
+                        <a class="nav-link text-white"  [routerLink]="['/group']">Approvals</a>
+                    </li>
                     <li *ngIf="flag" class="nav-item">
                         <a class="nav-link text-white"  [routerLink]="['/profile']">Profile</a>
                     </li>

@@ -13,6 +13,9 @@ export class CardServiceService {
     return this.http.get('/server/getAllCards');
   }
 
+  getMyCards(): any{
+    return this.http.get('/server/getMyCards');
+  }
   createCard(card: { url: string, title: string, description: string, cardType: string,  }): Observable<any> {
     return this.http.post<any>('server/createCard', card);
   }

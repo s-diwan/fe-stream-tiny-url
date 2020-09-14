@@ -10,7 +10,7 @@ import { DataSharedService } from '../services/data-shared.service';
 })
 export class GroupComponent implements OnInit {
   public groupsData: any;
-  public grpSearch: string;
+  public grpSearch = '';
   constructor(public dialog: MatDialog, private dataShared: DataSharedService, private groupService: GroupService) { }
 
   ngOnInit(): void {

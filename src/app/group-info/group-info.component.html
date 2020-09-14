@@ -1,0 +1,58 @@
+<div class="container">
+    <div class="group">
+        <h1 class="header text-primary">Groups Details</h1>
+      </div>
+</div>
+
+<br/>
+<br/>
+
+<div class="container">
+<div class="group-cards">
+    <h1 class="text-info font-weight-bold">Groups Cards</h1>
+    <button type="button" class="btn btn-primary btn-md float-right grpButton">Add Card</button>
+  <table class="table">
+    <thead class="thead-light">
+      <tr>
+        <th scope="col">Card Title</th>
+        <th scope="col">Description</th>
+        <th scope="col col-sm-1 col-md-1">Card Url</th>
+        <th scope="col">Type</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let card of grpData.cards">
+        <th scope="row" class="font-weight-bold">{{card.title}}</th>
+        <td class="font-weight-bold">{{card.description}}</td>
+        <td class="font-weight-bold">{{card.url}}</td>
+        <td class="font-weight-bold">{{card.cardType}}</td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+</div>
+<hr/>
+<div class="container">
+    <div class="group-admin">
+        <h1 class="text-info font-weight-bold">Groups Admin</h1>
+        <button type="button" class="btn btn-primary btn-md float-right grpButton">Add Admin</button>
+      <table class="table">
+        <thead class="thead-light">
+          <tr>
+            <th scope="col">Id</th>
+            <th scope="col">User Id</th>
+            <th scope="col">User Name</th>
+            <th scope="col">Group Id</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let admin of grpData.groupAdmins">
+            <th scope="row" class="font-weight-bold">{{admin.id}}</th>
+            <td class="font-weight-bold">{{admin.userName}}</td>
+            <td class="font-weight-bold">{{admin.userId}}</td>
+            <td class="font-weight-bold">{{admin.groupId}}</td>
+          </tr>
+        </tbody>
+      </table>
+      </div>
+    </div>
