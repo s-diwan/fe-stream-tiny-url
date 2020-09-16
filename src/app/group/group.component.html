@@ -12,7 +12,8 @@
         <th scope="col">Group Id</th>
         <th scope="col">Group Name</th>
         <th scope="col">Group Type</th>
-        <th scope="col">Group Creator</th>
+        <!-- <th scope="col">Group Creator</th> -->
+        <th scope="col">Actions</th>
       </tr>
     </thead>
     <tbody>
@@ -20,7 +21,15 @@
         <th scope="row" class="font-weight-bold"><a [routerLink]="['/groupinfo',group.id]">{{group.id}}</a></th>
         <td class="font-weight-bold">{{group.groupName}}</td>
         <td class="font-weight-bold">{{group.groupType}}</td>
-        <td class="font-weight-bold">{{group.groupAdmin}}</td>
+        <!-- <td class="font-weight-bold">{{group.groupAdmin}}</td> -->
+        <td class="font-weight-bold">
+            <button mat-icon-button (click)="openUpdateDialog(group)">
+            <mat-icon color = "primary">edit</mat-icon>
+            </button>
+            <button mat-icon-button (click)="openDeleteDialog()">
+              <mat-icon color = "warn">delete</mat-icon>
+              </button>
+        </td>
       </tr>
     </tbody>
   </table>

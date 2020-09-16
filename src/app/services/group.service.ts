@@ -20,4 +20,8 @@ export class GroupService {
   createGroup(group: { groupName: string, groupType: string }): Observable<any> {
     return this.http.post<any>('server/createGroup', group);
   }
+
+  updateGroup(group: { groupName: string, groupType: string }, grpId: number): Observable<any> {
+    return this.http.put<any>('server/updateGroup/' + grpId , group);
+  }
 }

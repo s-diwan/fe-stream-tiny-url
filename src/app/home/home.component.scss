@@ -21,6 +21,33 @@
 }
 
 
+:host {
+    text-align: center;
+    display: block;
+  }
+  
+  form {
+    max-width: 300px;
+    margin: auto;
+  }
+  
+  mat-form-field {
+    width: 100%;
+  }
+  
+  .actions {
+    text-align: center;
+  }
 
 
 
+.expForm{
+    padding-top: 80px;
+}
+
+
+textarea {
+    display: block;
+    
+    margin-left: 35%;
+  }

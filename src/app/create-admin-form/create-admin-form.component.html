@@ -1,0 +1,15 @@
+<div class="justify-content-center"><h1>Create Card</h1></div>
+
+<form [formGroup]="createGroupAdminForm" (ngSubmit)="createGroupAdmin()">
+
+  <mat-form-field>
+    <input matInput type="text" id="userId" placeholder="User ID" autocomplete="off" formControlName="userId" required>
+  </mat-form-field>
+  <br/>
+  <br/>
+  <div class="actions">
+    <button mat-raised-button color="danger" mat-dialog-close class="mr-2">Cancel</button>
+    <button mat-raised-button color="primary" mat-dialog-close class="mr-2" type="submit" [disabled]="!createGroupAdminForm.valid">Add Admin</button>
+  </div>
+
+</form>

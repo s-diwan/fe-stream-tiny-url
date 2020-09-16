@@ -16,7 +16,11 @@ export class CardServiceService {
   getMyCards(): any{
     return this.http.get('/server/getMyCards');
   }
-  createCard(card: { url: string, title: string, description: string, cardType: string,  }): Observable<any> {
+  createCard(card: { url: string, title: string, description: string, cardType: string }): Observable<any> {
     return this.http.post<any>('server/createCard', card);
+  }
+
+  createGroupCard(card: { url: string, title: string, description: string, cardType: string }, id: number): Observable<any> {
+    return this.http.post<any>(`server/createCard/group/${id}`, card);
   }
 }

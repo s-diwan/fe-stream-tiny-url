@@ -1,0 +1,19 @@
+<div class="justify-content-center"><h1>Update Group</h1></div>
+
+<form [formGroup]="updateGroupForm" (ngSubmit)="updateGroup()">
+
+  <mat-form-field>
+    <input matInput type="text" id="groupName" placeholder="Group Name" autocomplete="off" formControlName="groupName" required>
+  </mat-form-field>
+  <br/>
+  <mat-form-field>
+    <input matInput type="text" id="groupType" placeholder="Group Type" autocomplete="off" formControlName="groupType" required>
+  </mat-form-field>
+  <br/>
+  <br/>
+  <div class="actions">
+    <button mat-raised-button color="danger" mat-dialog-close class="mr-2">Cancel</button>
+    <button mat-raised-button color="primary" mat-dialog-close class="mr-2" type="submit" [disabled]="!updateGroupForm.valid">Update Group</button>
+  </div>
+
+</form>

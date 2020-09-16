@@ -1,0 +1,6 @@
+<div class="container justify-content-center">
+    <label for="clipboard-example-textarea"><h1 class="font-weight-bold">Your Tiny Url</h1></label>
+    <textarea id="clipboard-example-textarea" cols="30" rows="2" [(ngModel)]="value"></textarea> 
+    <br/>
+    <button mat-raised-button color="primary" mat-dialog-close [cdkCopyToClipboard]="value">Copy to clipboard</button>
+</div>

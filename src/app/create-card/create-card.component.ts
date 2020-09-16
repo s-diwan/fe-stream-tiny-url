@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { CardServiceService } from '../services/card-service.service';
 import { GroupService } from '../services/group.service';
@@ -13,7 +14,8 @@ export class CreateCardComponent implements OnInit {
 
   createCardForm: FormGroup;
 
-  constructor( private card: CardServiceService, private formBuilder: FormBuilder, private router: Router) { }
+  constructor(private snackBar: MatSnackBar, private card: CardServiceService,
+              private formBuilder: FormBuilder, private router: Router) { }
 
   ngOnInit(): void {
     this.createCardForm = this.formBuilder.group({
@@ -35,10 +37,18 @@ export class CreateCardComponent implements OnInit {
         cardType: this.f.cardType.value
       }
     )
-    .subscribe(success => {
-      if (success) {
-        this.router.navigate(['/landing']);
-      }
+    .subscribe(
+      success => {
+        this.openSnackBar('Card Created', 'Successfully');
+      },
+      err => {
+        this.openSnackBar(err.error.message, 'Change email');
+      });
+  }
+
+  openSnackBar(message, action): any {
+    this.snackBar.open( message, action, {
+      duration: 2000,
     });
   }
 

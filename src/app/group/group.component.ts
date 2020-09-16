@@ -3,6 +3,7 @@ import { GroupService } from '../services/group.service';
 import {MatDialog} from '@angular/material/dialog';
 import { GroupDetailsComponent } from '../group-details/group-details.component';
 import { DataSharedService } from '../services/data-shared.service';
+import { GroupDetailsUpdateComponent } from '../group-details-update/group-details-update.component';
 @Component({
   selector: 'app-group',
   templateUrl: './group.component.html',
@@ -45,4 +46,15 @@ export class GroupComponent implements OnInit {
     });
   }
 
+  openUpdateDialog(group): void {
+    const dialogRef = this.dialog.open(GroupDetailsUpdateComponent, {
+      height: '300px',
+      width: '300px',
+      data: { grpId: group.id, grpName: group.groupName, grpType: group.groupType }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+    });
+  }
 }

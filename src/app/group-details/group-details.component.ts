@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { DataSharedService } from '../services/data-shared.service';
 import { GroupService } from '../services/group.service';
@@ -11,9 +12,9 @@ import { SignUpService } from '../services/sign-up.service';
   styleUrls: ['./group-details.component.scss']
 })
 export class GroupDetailsComponent implements OnInit {
-
   createGroupForm: FormGroup;
-  constructor( private dataShared: DataSharedService, private group: GroupService, private formBuilder: FormBuilder) { }
+  constructor(private snackBar: MatSnackBar, private dataShared: DataSharedService,
+              private group: GroupService, private formBuilder: FormBuilder) { }
 
   ngOnInit(): void {
     this.createGroupForm = this.formBuilder.group({
@@ -33,7 +34,16 @@ export class GroupDetailsComponent implements OnInit {
     )
     .subscribe(success => {
         this.dataShared.setGroup(true);
+        this.openSnackBar('Group Created', 'Successfully');
+    },
+    err => {
+      this.openSnackBar(err.error.message, '');
     });
   }
 
+  openSnackBar(message, action): any {
+    this.snackBar.open(message, action, {
+      duration: 2000,
+    });
+  }
 }

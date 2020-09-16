@@ -5,3 +5,24 @@
         <h1>Shorten that long URL</h1>
     </div>
 </div>
+
+<div class="container expForm">
+    <h1 class="font-weight-bold">Create Tiny Url</h1>
+<form [formGroup]="tinyUrlForm" class="example-form" (ngSubmit)="createTinyUrl()">
+     <mat-form-field class="example-full-width">
+        <mat-label>Enter Long Url</mat-label>
+        <input matInput type="text" id="longUrl" placeholder="Long Url" autocomplete="off" formControlName="longUrl"
+            required>
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+        <mat-label>Expiration time in Minutes</mat-label>
+        <input matInput type="text" id="expTime" placeholder="Expiration Time" autocomplete="off" formControlName="expTime"
+            required>
+    </mat-form-field>
+    <div class="actions">
+        <button mat-raised-button color="primary" type="submit" [disabled]="!tinyUrlForm.valid">Create Tiny Url</button>
+    </div>
+</form>
+</div>
+<br/>
+<br/>

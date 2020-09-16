@@ -28,7 +28,15 @@ import { FormsModule } from '@angular/forms';
 import { CardsearchPipe } from './pipes/cardsearch.pipe';
 import { MyCardsComponent } from './my-cards/my-cards.component';
 import { GroupInfoComponent } from './group-info/group-info.component';
-
+import { CreateGroupCardComponent } from './create-group-card/create-group-card.component';
+import { CreateAdminFormComponent } from './create-admin-form/create-admin-form.component';
+import { GroupDetailsUpdateComponent } from './group-details-update/group-details-update.component';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
+import {MatSelectModule} from '@angular/material/select';
+import {ClipboardModule} from '@angular/cdk/clipboard';
+import { TinyUrlPopComponent } from './tiny-url-pop/tiny-url-pop.component';
+import {MatIconModule} from '@angular/material/icon';
+import { UpdateCardFormComponent } from './update-card-form/update-card-form.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -44,7 +52,12 @@ import { GroupInfoComponent } from './group-info/group-info.component';
     GroupsearchPipe,
     CardsearchPipe,
     MyCardsComponent,
-    GroupInfoComponent
+    GroupInfoComponent,
+    CreateGroupCardComponent,
+    CreateAdminFormComponent,
+    GroupDetailsUpdateComponent,
+    TinyUrlPopComponent,
+    UpdateCardFormComponent
   ],
   imports: [
     BrowserModule,
@@ -52,11 +65,15 @@ import { GroupInfoComponent } from './group-info/group-info.component';
     MatInputModule,
     MatButtonModule,
     MatFormFieldModule,
+    MatSnackBarModule,
     MatDialogModule,
+    ClipboardModule,
     BrowserAnimationsModule,
     ReactiveFormsModule,
+    MatSelectModule,
     MatRadioModule,
     FormsModule,
+    MatIconModule,
     HttpClientModule
   ],
   providers: [AuthGuard,
