@@ -1,6 +1,7 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CardServiceService } from '../services/card-service.service';
 import { DataSharedService } from '../services/data-shared.service';
@@ -14,7 +15,8 @@ export class CreateGroupCardComponent implements OnInit {
   groupId: any;
   createGroupCardForm: FormGroup;
 
-  constructor(private card: CardServiceService, private formBuilder: FormBuilder, private router: Router, private route: ActivatedRoute,
+  constructor(private snackBar: MatSnackBar, private card: CardServiceService, private dataShared: DataSharedService,
+              private formBuilder: FormBuilder, private router: Router, private route: ActivatedRoute,
               @Inject(MAT_DIALOG_DATA) public data: string,
               private dialogRef: MatDialogRef<CreateGroupCardComponent> ) {
               this.groupId = data;
@@ -42,10 +44,18 @@ export class CreateGroupCardComponent implements OnInit {
       },
       this.groupId.grpId
     )
-    .subscribe(success => {
-      if (success) {
-        // this.router.navigate(['/landing']);
-      }
+    .subscribe(success =>  {
+      this.dataShared.setAdmin(true);
+      this.openSnackBar('Card Added', 'Successfully');
+    },
+    err => {
+      this.openSnackBar(err.error.message, 'Error');
+    });
+  }
+
+  openSnackBar(message, action): any {
+    this.snackBar.open(message, action, {
+      duration: 2000,
     });
   }
 }

@@ -13,7 +13,7 @@ export class ApprovalComponent implements OnInit {
 
   ngOnInit(): void {
     this.getAllApprovals();
-    this.dataShared.card.subscribe(
+    this.dataShared.approval.subscribe(
       data => {
         if (data){
         this.approvalService.getMyApproval().subscribe(

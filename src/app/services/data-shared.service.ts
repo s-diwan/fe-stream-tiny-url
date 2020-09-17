@@ -15,9 +15,23 @@ export class DataSharedService {
   card = this.cardSource.asObservable();
 
   private approvalSource = new Subject<any>();
-  approval = this.cardSource.asObservable();
+  approval = this.approvalSource.asObservable();
+
+  private adminSource = new Subject<any>();
+  admin = this.adminSource.asObservable();
+
+  private grpCardSource = new Subject<any>();
+  grpCard = this.grpCardSource.asObservable();
 
   constructor() { }
+
+  setgrpCard(grpCard): any{
+    this.grpCardSource.next(grpCard);
+  }
+
+  setAdmin(admin): any{
+    this.adminSource.next(admin);
+  }
 
   setApproval(approval): any{
     this.approvalSource.next(approval);

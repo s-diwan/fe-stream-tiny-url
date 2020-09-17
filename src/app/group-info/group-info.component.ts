@@ -3,6 +3,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute } from '@angular/router';
 import { CreateAdminFormComponent } from '../create-admin-form/create-admin-form.component';
 import { CreateGroupCardComponent } from '../create-group-card/create-group-card.component';
+import { DataSharedService } from '../services/data-shared.service';
 import { GroupService } from '../services/group.service';
 
 
@@ -13,10 +14,21 @@ import { GroupService } from '../services/group.service';
 })
 export class GroupInfoComponent implements OnInit {
   public grpData: any;
-  constructor( public dialog: MatDialog, private grpService: GroupService, private route: ActivatedRoute) { }
+  constructor(public dialog: MatDialog, private dataShared: DataSharedService,
+              private grpService: GroupService, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.getGrpInfo(this.route.snapshot.params.id);
+    this.dataShared.admin.subscribe(
+      data => {
+        if (data){
+        this.grpService.getGroup(this.route.snapshot.params.id).subscribe(
+          datum => {this.grpData = datum; },
+          err => console.log(err),
+          () => console.log('cards data loaded')
+        );
+      }},
+    );
   }
 
   getGrpInfo(id: number): any {
