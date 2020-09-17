@@ -27,10 +27,7 @@
                     </li>
                    
                     <li *ngIf="flag" class="nav-item">
-                        <a class="nav-link text-white"  [routerLink]="['/group']">Approvals</a>
-                    </li>
-                    <li *ngIf="flag" class="nav-item">
-                        <a class="nav-link text-white"  [routerLink]="['/profile']">Profile</a>
+                        <a class="nav-link text-white"  [routerLink]="['/approval']">Approvals</a>
                     </li>
                     <li *ngIf="flag" class="nav-item">
                         <a class="nav-link text-white" (click)="logOut()" [routerLink]="['/home']">Logout</a>

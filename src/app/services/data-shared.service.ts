@@ -11,10 +11,24 @@ export class DataSharedService {
   private loginData = new Subject<any>();
   login = this.loginData.asObservable();
 
+  private cardSource = new Subject<any>();
+  card = this.cardSource.asObservable();
+
+  private approvalSource = new Subject<any>();
+  approval = this.cardSource.asObservable();
+
   constructor() { }
+
+  setApproval(approval): any{
+    this.approvalSource.next(approval);
+  }
 
   setGroup(group): any{
     this.groupSource.next(group);
+  }
+
+  setCard(card): any{
+    this.cardSource.next(card);
   }
 
   setLoginFlag(login): any{

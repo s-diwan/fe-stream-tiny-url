@@ -1,0 +1,39 @@
+<div class="container">
+    <div class="group">
+        <h1 class="header text-primary">Approvals</h1>
+        <br/>
+        <br/>
+      <table class="table">
+        <thead class="thead-light">
+          <tr>
+            <th scope="col">Card Id</th>
+            <th scope="col">Title</th>
+            <th scope="col">Description</th>
+            <th scope="col">Card Type</th>
+            <th scope="col">Requested By</th>
+            <th scope="col">Status</th>
+            <th scope="col">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let approval of approvalData">
+            <th scope="row" class="font-weight-bold">{{approval.cardId}}</th>
+            <td class="font-weight-bold">{{approval.title}}</td>
+            <td class="font-weight-bold">{{approval.description}}</td>
+            <td class="font-weight-bold">{{approval.cardType}}</td>
+            <td class="font-weight-bold">{{approval.requestedBy}}</td>
+            <td class="font-weight-bold">{{approval.status}}</td>
+            
+            <td class="font-weight-bold">
+                <button mat-icon-button (click)="approve(approval)">
+                <mat-icon color = "primary">check</mat-icon>
+                </button>
+                <button mat-icon-button (click)="reject(approval)">
+                  <mat-icon color = "warn">delete</mat-icon>
+                  </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      </div>
+    </div>

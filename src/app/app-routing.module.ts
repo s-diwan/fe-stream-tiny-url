@@ -9,6 +9,7 @@ import { GroupComponent } from './group/group.component';
 import { ProfileComponent } from './profile/profile.component';
 import { MyCardsComponent } from './my-cards/my-cards.component';
 import { GroupInfoComponent } from './group-info/group-info.component';
+import { ApprovalComponent } from './approval/approval.component';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: '/home' },
@@ -42,6 +43,11 @@ const routes: Routes = [
   {
     path: 'mycards',
     component: MyCardsComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'approval',
+    component: ApprovalComponent,
     canActivate: [AuthGuard]
   },
   {

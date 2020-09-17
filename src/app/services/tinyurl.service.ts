@@ -9,7 +9,7 @@ export class TinyurlService {
 
   constructor(private http: HttpClient) { }
 
-  createTinyUrl(url: string): any {
+  createTinyUrl(url: { longUrl: string, time: number}): any {
     return this.http.post<any>('server/createTinyUrl', url);
   }
 }

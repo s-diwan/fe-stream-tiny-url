@@ -28,7 +28,10 @@ export class HomeComponent implements OnInit {
   get f(): any { return this.tinyUrlForm.controls; }
 
   createTinyUrl(): any{
-    this.tinyUrlService.createTinyUrl(this.f.longUrl.value).toPromise().then( data => {
+    this.tinyUrlService.createTinyUrl(
+      {longUrl: this.f.longUrl.value,
+      time: this.f.expTime.value}
+      ).toPromise().then( data => {
       this.shortUrl = data;
       })
       .catch((error) => {

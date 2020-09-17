@@ -37,6 +37,7 @@ import {ClipboardModule} from '@angular/cdk/clipboard';
 import { TinyUrlPopComponent } from './tiny-url-pop/tiny-url-pop.component';
 import {MatIconModule} from '@angular/material/icon';
 import { UpdateCardFormComponent } from './update-card-form/update-card-form.component';
+import { ApprovalComponent } from './approval/approval.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -57,7 +58,8 @@ import { UpdateCardFormComponent } from './update-card-form/update-card-form.com
     CreateAdminFormComponent,
     GroupDetailsUpdateComponent,
     TinyUrlPopComponent,
-    UpdateCardFormComponent
+    UpdateCardFormComponent,
+    ApprovalComponent
   ],
   imports: [
     BrowserModule,

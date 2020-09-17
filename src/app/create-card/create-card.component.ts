@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { CardServiceService } from '../services/card-service.service';
+import { DataSharedService } from '../services/data-shared.service';
 import { GroupService } from '../services/group.service';
 
 @Component({
@@ -14,7 +15,7 @@ export class CreateCardComponent implements OnInit {
 
   createCardForm: FormGroup;
 
-  constructor(private snackBar: MatSnackBar, private card: CardServiceService,
+  constructor(private snackBar: MatSnackBar, private card: CardServiceService, private dataShared: DataSharedService,
               private formBuilder: FormBuilder, private router: Router) { }
 
   ngOnInit(): void {
@@ -39,6 +40,7 @@ export class CreateCardComponent implements OnInit {
     )
     .subscribe(
       success => {
+        this.dataShared.setCard(true);
         this.openSnackBar('Card Created', 'Successfully');
       },
       err => {

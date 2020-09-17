@@ -4,6 +4,7 @@ import {MatDialog} from '@angular/material/dialog';
 import { GroupDetailsComponent } from '../group-details/group-details.component';
 import { DataSharedService } from '../services/data-shared.service';
 import { GroupDetailsUpdateComponent } from '../group-details-update/group-details-update.component';
+import { MatSnackBar } from '@angular/material/snack-bar';
 @Component({
   selector: 'app-group',
   templateUrl: './group.component.html',
@@ -12,7 +13,9 @@ import { GroupDetailsUpdateComponent } from '../group-details-update/group-detai
 export class GroupComponent implements OnInit {
   public groupsData: any;
   public grpSearch = '';
-  constructor(public dialog: MatDialog, private dataShared: DataSharedService, private groupService: GroupService) { }
+  constructor(private snackBar: MatSnackBar, public dialog: MatDialog,
+              private dataShared: DataSharedService,
+              private groupService: GroupService) { }
 
   ngOnInit(): void {
     this.getAllGroups();
@@ -30,7 +33,10 @@ export class GroupComponent implements OnInit {
 
   getAllGroups(): void{
     this.groupService.getAllGroups().subscribe(
-      data => {this.groupsData = data; },
+      data => {
+        this.groupsData = data;
+        console.log(data);
+      },
       err => console.log(err),
       () => console.log('cards data loaded')
     );
@@ -55,6 +61,26 @@ export class GroupComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       console.log(`Dialog result: ${result}`);
+    });
+  }
+
+  deleteGroup(group): any{
+    this.groupService.deleteGroup(
+      group.id
+    )
+    .subscribe(
+      data => {
+        this.dataShared.setGroup(true);
+        this.openSnackBar('Deleted', 'Successfully');
+      },
+      err => {
+        this.openSnackBar(err.error.message, 'Error');
+      });
+  }
+
+  openSnackBar(message, action): any {
+    this.snackBar.open(message, action, {
+      duration: 2000,
     });
   }
 }

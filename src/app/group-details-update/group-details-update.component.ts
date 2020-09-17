@@ -19,6 +19,7 @@ export class GroupDetailsUpdateComponent implements OnInit {
               @Inject(MAT_DIALOG_DATA) public data: string,
               private dialogRef: MatDialogRef<GroupDetailsUpdateComponent>) {
               this.grpData = this.data;
+              console.log(this.grpData);
             }
 
   ngOnInit(): void {

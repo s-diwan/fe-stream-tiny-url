@@ -24,4 +24,8 @@ export class GroupService {
   updateGroup(group: { groupName: string, groupType: string }, grpId: number): Observable<any> {
     return this.http.put<any>('server/updateGroup/' + grpId , group);
   }
+
+  deleteGroup(id: number): Observable<any> {
+    return this.http.delete(`server/deleteGroup/${id}`) ;
+  }
 }

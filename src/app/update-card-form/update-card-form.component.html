@@ -1,1 +1,24 @@
-<p>update-card-form works!</p>
+<div class="justify-content-center"><h1>Update Card</h1></div>
+
+<form [formGroup]="udpateCardForm" (ngSubmit)="updateCard()">
+
+  <mat-form-field>
+    <input matInput type="text" id="title" placeholder="Title" autocomplete="off" formControlName="title" required>
+  </mat-form-field>
+  <br/>
+  <mat-form-field>
+    <input matInput type="text" id="description" placeholder="Description" autocomplete="off" formControlName="description" required>
+  </mat-form-field>
+  <br/>
+  <br/>
+  <mat-form-field>
+    <input matInput type="text" id="cardType" placeholder="Card Type" autocomplete="off" formControlName="cardType" required>
+  </mat-form-field>
+  <br/>
+  <br/>
+  <div class="actions">
+    <button mat-raised-button color="danger" mat-dialog-close class="mr-2">Cancel</button>
+    <button mat-raised-button color="primary" mat-dialog-close class="mr-2" type="submit" [disabled]="!udpateCardForm.valid">Update Card</button>
+  </div>
+
+</form>

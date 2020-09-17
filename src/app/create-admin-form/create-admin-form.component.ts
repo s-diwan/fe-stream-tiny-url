@@ -32,8 +32,8 @@ export class CreateAdminFormComponent implements OnInit {
   createGroupAdmin(): void {
     console.log(this.groupId);
     this.admin.createGroupAdmin(
-      this.f.userId.value,
-      this.groupId.grpId
+      this.groupId.grpId,
+      this.f.userId.value
     )
       .subscribe(success => {
         if (success) {

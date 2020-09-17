@@ -16,12 +16,12 @@
         <div class="card-body">
           <h3 class="card-title font-weight-bold">{{card.title}}</h3>
           <h5 class="card-subtitle mb-2 font-weight-bold">{{card.description}}</h5>
-          <p class="card-text">{{card.url}}</p>
+          <p class="card-text"><a>{{card.urlMapper.shortUrl}}</a></p>
           <div class="float-right">
-            <button mat-icon-button (click)="openUpdateDialog(group)">
+            <button mat-icon-button (click)="openCardUpdateDialog(card)">
               <mat-icon color = "primary">edit</mat-icon>
               </button>
-              <button mat-icon-button (click)="openDeleteDialog()">
+              <button mat-icon-button (click)="deleteCard(card)">
                 <mat-icon color = "warn">delete</mat-icon>
                 </button>
           </div>

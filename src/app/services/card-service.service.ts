@@ -23,4 +23,13 @@ export class CardServiceService {
   createGroupCard(card: { url: string, title: string, description: string, cardType: string }, id: number): Observable<any> {
     return this.http.post<any>(`server/createCard/group/${id}`, card);
   }
+
+  updateCard(card: { id: number, url: string, title: string, description: string,
+            cardType: string, group_id: number, userId: number }): Observable<any> {
+    return this.http.put<any>('server/updateCard', card);
+  }
+
+  deleteCard( card: {id: number, group_id: number, userId: number }, id: number): Observable<any> {
+    return this.http.post<any>(`server/deleteCard/${id}`, card) ;
+  }
 }
